@@ -29,12 +29,12 @@ const App = () => {
     {
       name: "HTML",
       logo: <FaHtml5 className="text-orange-500" />,
-      percentage: 95,
+      percentage: 65,
     },
     {
       name: "CSS",
       logo: <FaCss3Alt className="text-blue-500" />,
-      percentage: 90,
+      percentage: 70,
     },
     {
       name: "JavaScript",
@@ -131,7 +131,8 @@ const App = () => {
     },
     {
       title: "Doctor Managment System",
-      description: "A web-based application built with Next.js to streamline the management of doctors, appointments, and patient records. This system allows admins to add, update, and delete doctor profiles, while patients can book, view, and manage appointments. Features include user authentication, real-time scheduling, and a dashboard for doctors to manage their schedules. Built with modern technologies like React, Tailwind CSS, and Express , MongoDB for backend functionality. Perfect for clinics or hospitals looking to digitize their operations.",
+      description:
+        "A web-based application built with Next.js to streamline the management of doctors, appointments, and patient records. This system allows admins to add, update, and delete doctor profiles, while patients can book, view, and manage appointments. Features include user authentication, real-time scheduling, and a dashboard for doctors to manage their schedules. Built with modern technologies like React, Tailwind CSS, and Express , MongoDB for backend functionality. Perfect for clinics or hospitals looking to digitize their operations.",
       githubLink: "https://github.com/anashanif123/DMS",
       vercelLink: "https://dms-ivory-mu.vercel.app/",
     },
@@ -232,7 +233,6 @@ const App = () => {
       </section>
 
       {/* About Section */}
-      
 
       {/* Skills Section */}
       <section
@@ -285,12 +285,14 @@ const App = () => {
               <div className="flex justify-center space-x-4">
                 <a
                   href={project.githubLink}
+                  target="_blank"
                   className="text-blue-500 hover:text-blue-400 transition duration-300"
                 >
                   GitHub
                 </a>
                 <a
                   href={project.vercelLink}
+                  target="_blank"
                   className="text-blue-500 hover:text-blue-400 transition duration-300"
                 >
                   Live Demo
@@ -304,7 +306,7 @@ const App = () => {
         id="about"
         className="min-h-screen flex flex-col justify-center items-center bg-gray-800"
       >
-        <h2 className="text-4xl font-bold mb-4" >About Me</h2>
+        <h2 className="text-4xl font-bold mb-4">About Me</h2>
         <p className="text-lg max-w-2xl text-center">
           I am a passionate web developer who loves to create visually appealing
           and user-friendly web applications. My goal is to craft seamless user
