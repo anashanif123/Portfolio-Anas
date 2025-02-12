@@ -143,16 +143,16 @@ const App = () => {
       <ParticlesComponent />
       {/* Navbar */}
       <nav className="fixed w-full bg-gray-900 shadow-lg z-10">
-        <div className="container mx-auto flex justify-between items-center py-4 px-6">
+        <div className="container mx-auto flex justify-between items-center py-4 px-4 sm:px-6">
           <div className="text-xl font-bold text-white">Anas</div>
-          <div className="space-x-6">
+          <div className="space-x-4 sm:space-x-6">
             {["home", "about", "skills", "projects"].map((section) => (
               <Link
                 key={section}
                 to={section}
                 smooth={true}
                 duration={500}
-                className="cursor-pointer hover:text-gray-400 transition duration-300"
+                className="cursor-pointer hover:text-gray-400 transition duration-300 text-sm sm:text-base"
               >
                 {section.charAt(0).toUpperCase() + section.slice(1)}
               </Link>
@@ -162,7 +162,7 @@ const App = () => {
       </nav>
 
       {/* Social Links Sidebar */}
-      <div className="fixed left-6 top-1/2 transform -translate-y-1/2 flex flex-col space-y-8 text-white">
+      <div className="fixed left-2 sm:left-4 top-1/2 transform -translate-y-1/2 flex flex-col space-y-4 sm:space-y-8 text-white">
         {[
           {
             href: "https://www.linkedin.com/in/anas-hanif-2915b0317/",
@@ -191,7 +191,7 @@ const App = () => {
             href={href}
             target="_blank"
             rel="noopener noreferrer"
-            className={`${color} hover:text-gray-400 text-3xl transition duration-300`}
+            className={`${color} hover:text-gray-400 text-2xl sm:text-3xl transition duration-300`}
           >
             <i className={icon}></i>
           </a>
@@ -201,20 +201,22 @@ const App = () => {
       {/* Home Section */}
       <section
         id="home"
-        className="h-screen flex flex-col md:flex-row justify-center items-center bg-gradient-to-b from-gray-900 to-gray-800 px-6"
-        style={{ paddingLeft: "6rem" }} // Adjust padding to account for sidebar
+        className="h-screen flex flex-col md:flex-row justify-center items-center bg-gradient-to-b from-gray-900 to-gray-800 px-4 sm:px-6"
+        style={{ paddingLeft: "4rem", paddingRight: "4rem" }} // Adjusted padding for mobile
       >
         {/* Left Side: Text Content */}
         <div className="flex-1 flex flex-col justify-center items-center md:items-start text-center md:text-left">
-          <h1 className="text-5xl font-bold mb-4">HEY, I'M MUHAMMAD ANAS</h1>
-          <p className="text-lg max-w-md mb-6">
+          <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4">
+            HEY, I'M MUHAMMAD ANAS
+          </h1>
+          <p className="text-sm sm:text-lg max-w-md mb-6">
             I specialize in building high-quality web applications using HTML,
             CSS, JavaScript, Tailwind CSS, Firebase, MongoDB, Next.js, React.js,
             and Bootstrap.
           </p>
           <a
             href="#projects"
-            className="bg-gray-600 text-white px-6 py-2 rounded-full hover:bg-gray-500 transition duration-300"
+            className="bg-gray-600 text-white px-4 sm:px-6 py-2 rounded-full hover:bg-gray-500 transition duration-300 text-sm sm:text-base"
             style={{ zIndex: "2" }}
           >
             View Projects
@@ -222,25 +224,25 @@ const App = () => {
         </div>
 
         {/* Right Side: Image */}
-        <div className="flex-1 flex justify-center items-center">
+        <div className="flex-1 flex justify-center items-center mt-8 md:mt-0">
           <img
-            src={image} // Replace with your image URL
+            src={image}
             alt="Profile"
-            className="w-80 h-80 md:w-96 md:h-96 rounded-full object-cover shadow-2xl"
+            className="w-48 h-48 sm:w-64 sm:h-64 md:w-80 md:h-80 lg:w-96 lg:h-96 rounded-full object-cover shadow-2xl"
             style={{ zIndex: "1" }}
           />
         </div>
       </section>
 
-      {/* About Section */}
-
       {/* Skills Section */}
       <section
         id="skills"
-        className="min-h-screen flex flex-col justify-center items-center bg-gray-900"
+        className="min-h-screen flex flex-col justify-center items-center bg-gray-900 py-12"
       >
-        <h2 className="text-4xl font-bold mb-6 text-center">Skills</h2>
-        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 gap-8 text-center w-full px-4">
+        <h2 className="text-3xl sm:text-4xl font-bold mb-6 text-center">
+          Skills
+        </h2>
+        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 gap-4 sm:gap-8 text-center w-full px-4">
           {skills.map((skill, index) => (
             <motion.div
               key={index}
@@ -249,12 +251,13 @@ const App = () => {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: index * 0.1 }}
             >
-              <div className="text-5xl mb-2 group-hover:text-gray-400 transition duration-300">
+              <div className="text-4xl sm:text-5xl mb-2 group-hover:text-gray-400 transition duration-300">
                 {skill.logo}
               </div>
-              <div className="text-lg">{skill.name}</div>
-              <div className="text-sm text-gray-500">{skill.percentage}%</div>
-
+              <div className="text-sm sm:text-lg">{skill.name}</div>
+              <div className="text-xs sm:text-sm text-gray-500">
+                {skill.percentage}%
+              </div>
               {/* Progress bar */}
               <div className="w-full bg-gray-700 rounded-full h-2 mt-2">
                 <div
@@ -270,30 +273,34 @@ const App = () => {
       {/* Projects Section */}
       <section
         id="projects"
-        className="min-h-screen flex flex-col justify-center items-center bg-gray-800"
+        className="min-h-screen flex flex-col justify-center items-center bg-gray-800 py-12"
       >
-        <h2 className="text-4xl font-bold mb-6 text-center ">Projects</h2>
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 text-center w-full px-6">
+        <h2 className="text-3xl sm:text-4xl font-bold mb-6 text-center">
+          Projects
+        </h2>
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-8 text-center w-full px-4">
           {projects.map((project, index) => (
             <div
               key={index}
-              className="bg-gray-900 text-white p-6 rounded-lg shadow-lg hover:bg-gray-700 transition duration-300"
+              className="bg-gray-900 text-white p-4 sm:p-6 rounded-lg shadow-lg hover:bg-gray-700 transition duration-300"
               style={{ zIndex: "2" }}
             >
-              <h3 className="text-2xl font-bold mb-4">{project.title}</h3>
-              <p className="text-lg mb-4">{project.description}</p>
+              <h3 className="text-xl sm:text-2xl font-bold mb-4">
+                {project.title}
+              </h3>
+              <p className="text-sm sm:text-lg mb-4">{project.description}</p>
               <div className="flex justify-center space-x-4">
                 <a
                   href={project.githubLink}
                   target="_blank"
-                  className="text-blue-500 hover:text-blue-400 transition duration-300"
+                  className="text-blue-500 hover:text-blue-400 transition duration-300 text-sm sm:text-base"
                 >
                   GitHub
                 </a>
                 <a
                   href={project.vercelLink}
                   target="_blank"
-                  className="text-blue-500 hover:text-blue-400 transition duration-300"
+                  className="text-blue-500 hover:text-blue-400 transition duration-300 text-sm sm:text-base"
                 >
                   Live Demo
                 </a>
@@ -302,28 +309,30 @@ const App = () => {
           ))}
         </div>
       </section>
+
+      {/* About Section */}
       <section
         id="about"
-        className="min-h-screen flex flex-col justify-center items-center bg-gray-800"
+        className="min-h-screen flex flex-col justify-center items-center bg-gray-800 py-12"
       >
-        <h2 className="text-4xl font-bold mb-4">About Me</h2>
-        <p className="text-lg max-w-2xl text-center">
+        <h2 className="text-3xl sm:text-4xl font-bold mb-4">About Me</h2>
+        <p className="text-sm sm:text-lg max-w-2xl text-center px-4">
           I am a passionate web developer who loves to create visually appealing
           and user-friendly web applications. My goal is to craft seamless user
-          experiences with a focus on performance and responsiveness.I am a
-          passionate Full-Stack Developer with expertise in building scalable
-          and efficient web applications. With a strong foundation in both
-          front-end and back-end technologies, I specialize in creating seamless
-          user experiences and robust server-side architectures. I have hands-on
+          experiences with a focus on performance and responsiveness. I am a
+          passionate Full-Stack Developer with expertise in building scalable and
+          efficient web applications. With a strong foundation in both front-end
+          and back-end technologies, I specialize in creating seamless user
+          experiences and robust server-side architectures. I have hands-on
           experience with modern frameworks and technologies, including React,
           Angular, Vue.js, Node.js, Express, Django, and Laravel, along with
           databases such as MongoDB, PostgreSQL, and MySQL. I thrive in agile
           environments and enjoy solving complex problems through clean,
           maintainable code. Beyond coding, I stay up-to-date with industry
-          trends, continuously learning new technologies to enhance my skill
-          set. I am passionate about delivering high-quality software solutions
-          and collaborating with cross-functional teams to bring innovative
-          ideas to life. Let’s connect and build something amazing together! 🚀
+          trends, continuously learning new technologies to enhance my skill set.
+          I am passionate about delivering high-quality software solutions and
+          collaborating with cross-functional teams to bring innovative ideas to
+          life. Let’s connect and build something amazing together! 🚀
         </p>
       </section>
     </div>
